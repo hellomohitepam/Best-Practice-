@@ -13,7 +13,6 @@ A class should only have **one responsibility**. Furthermore, it should only hav
 ---
 
 ```java
-// 
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,7 +76,7 @@ public class SRPViolated {
 }
 
 ```
-
+So in the above code there are many reason to change the code like calculateTotal rule change, in printInvoice invoice logic change,in saveToDatabase database change
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -160,8 +159,6 @@ public class SRPFollowed {
         db.saveToDatabase();
     }
 }
-
-
 ```
 
 

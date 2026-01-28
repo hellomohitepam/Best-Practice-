@@ -94,7 +94,8 @@ public class OCPViolated {
         db.saveToSQLDatabase();
     }
 }
-
+```
+But to solve above problem i can create a interface for the storage of database & when ever a new feature is required then we can extends the new feature without modifying the code
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -192,12 +193,6 @@ public class OCPFollowed {
         file.save(cart);  // Save to File
     }
 }
-
-```
-
-
-
-
 
 ```
 

@@ -1,9 +1,18 @@
+## Liskov Substitution Principle (LSP)
 
-* LSP states that objects of a derived class should be able to replace objects of the base class without affecting the correctness of the program.
-* This principle ensures that inheritance relationships are well-designed and that the derived class respect to the contract of the base class.
+- **LSP states that objects of a derived class should be able to replace objects of the base class without affecting the correctness of the program.**
+- This principle ensures that inheritance relationships are well-designed and that the derived class respects the contract of the base class.
 
-As we know FD type account restrict the withdraw feature for a maturity date, so if we replace the Account reference to FD then for accesss of withdraw we get the error
-so it means we can not replace.
+---
+
+## LSP Violation Example
+
+As we know, an **FD (Fixed Deposit) account** restricts the withdrawal feature until the maturity date.  
+If we replace an `Account` reference with an `FDAccount` object and attempt to call `withdraw()`, it may result in an error or unexpected behavior.
+
+This indicates that the derived class (`FDAccount`) cannot properly replace the base class (`Account`), which violates the Liskov Substitution Principle.
+
+### Problematic Design (LSP Violation)
 ```java
 // Account interface
 interface Account {

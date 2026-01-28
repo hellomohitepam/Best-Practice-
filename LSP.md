@@ -160,3 +160,104 @@ public class LSPFollowed {
 
 ```
 
+## Liskov Substitution Principle (LSP) – Behavioral Rules
+
+**Child class should behave like a parent class.**
+
+To ensure this, LSP defines three main guidelines:
+
+- Signature Rule  
+- Property Rule  
+- Method Rule  
+
+---
+
+## 1. Signature Rule
+
+### Method Arguments
+- Subtype method arguments can be **identical to or wider** than the supertype.
+- Java enforces this by requiring the **same method signature** for method overrides.
+
+### Return Type
+- Subtype overridden method return type should be:
+  - **Identical**, or
+  - **Narrower** than the parent method’s return type (**covariant return type**).
+- Java supports covariant return types out of the box.
+
+### Exceptions
+- Subtype methods should **not throw broader or new checked exceptions** than the parent method.
+- Subtypes may:
+  - Throw the same exceptions
+  - Throw narrower (subclass) exceptions
+  - Throw no exceptions at all
+
+---
+
+## 2. Property Rule
+
+### Class Invariant
+- A **class invariant** of a parent class must not be broken by the child class.
+- Example:
+  - `balance` should never be negative.
+- A child class may:
+  - Maintain the invariant, or
+  - Strengthen the invariant
+- A child class must **never weaken or violate** the invariant.
+
+### History Constraint
+- Subclass methods should **not allow state changes** that the base class never allowed.
+- Example:
+  - `withdraw()` is allowed in `Account`
+  - `withdraw()` is **not allowed** in `FDAccount`
+- Allowing such a change breaks the expected behavior and violates LSP.
+
+---
+
+## 3. Method Rule
+
+### Precondition
+- A **precondition** must be satisfied before a method can be executed.
+- Example:
+  - Parent class: password length `<= 8`
+  - Child class: password length `<= 6`
+- Rule:
+  - Subclasses can **weaken** the precondition
+  - Subclasses **cannot strengthen** the precondition
+
+### Postcondition
+- A **postcondition** must be satisfied after a method is executed.
+- Rule:
+  - Subclasses can **strengthen** the postcondition
+  - Subclasses **cannot weaken** the postcondition
+- Example:
+  - Parent method: reduces battery on break
+  - Child method: reduces battery **and** increases performance
+
+---
+
+## Summary
+
+To comply with the **Liskov Substitution Principle**:
+- Child classes must be substitutable for parent classes
+- Contracts defined by the parent must be preserved
+- Behavior consistency is more important than code reuse
+
+Following these rules ensures safe inheritance and robust object-oriented design.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

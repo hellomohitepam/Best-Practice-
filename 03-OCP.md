@@ -5,9 +5,6 @@
 * In other words, you should be able to add new functionality or behavior to a system without altering the existing code.
 * Adding a new feature to software entities by modifying it, can lead new bugs, poor readability and hard to maintain.
 
-```java
-
-```
 Now i want to store the data to SQL, noSQL, files so i need to modify the ShoppingCartStorage class which will can lead new bugs, poor readability and hard to maintain.
 ```java
 import java.util.ArrayList;

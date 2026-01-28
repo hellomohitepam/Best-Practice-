@@ -3,7 +3,7 @@
 ## Dependency Inversion Principle (DIP)
 
 > **High-level modules should not depend on low-level modules.**  
-> **Both should depend on abstractions.**
+> **the principle encourages you to rely on interfaces or abstract classes to decouple your code and make it easier to extend, maintain, and test.**
 
 ### What this means
 - Business logic must not depend on technical details

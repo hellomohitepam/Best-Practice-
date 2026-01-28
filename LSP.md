@@ -222,16 +222,14 @@ To ensure this, LSP defines three main guidelines:
   - Child class: password length `<= 6`
 - Rule:
   - Subclasses can **weaken** the precondition
-  - Subclasses **cannot strengthen** the precondition
 
 ### Postcondition
 - A **postcondition** must be satisfied after a method is executed.
 - Rule:
   - Subclasses can **strengthen** the postcondition
-  - Subclasses **cannot weaken** the postcondition
 - Example:
-  - Parent method: reduces battery on break
-  - Child method: reduces battery **and** increases performance
+  - Parent method: on break method just break the car
+  - Child method: increase battery on break
 
 ---
 

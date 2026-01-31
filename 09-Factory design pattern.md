@@ -2,28 +2,20 @@
 
 The **Factory Design Pattern** provides a way to create objects without exposing the instantiation logic to the client.
 
-## Definition
+### Goals
 
-- A **factory class** decides which **concrete class** to instantiate.
+- Encapsulate object creation
+- Follow **Open/Closed Principle**
 - Object creation and business logic should be **separate**, which is why we use a factory class.
 - The main goal is to **decouple the client** from the application internals.
-- Clients interact with interfaces or abstractions, not concrete implementations.
-
-## Key Idea
-
-- Centralize object creation
-- Reduce tight coupling
-- Improve maintainability and scalability
 
 ## Types of Factory Patterns
 
 Factories are generally categorized into **three types**.
 
-### 1. Simple Factory (Design Principle)
+### 1. Simple Factory (**not an official GoF pattern**):
 
-- Defines an **interface for creating an object**
-- Allows subclasses or logic inside the factory to decide **which class to instantiate**
-- The client does not know the exact class being created
+A **simple factory class** is responsible for creating objects based on input parameters (usually using `if` / `switch`).
 
 ### Diagram
 
@@ -89,36 +81,43 @@ public class SimpleFactory {
 }
 
 ```
-### 2.factory method {DP} :
-Provide an interface for creating families of related objects without specifying their concrete class
-<img width="1127" height="428" alt="image" src="https://github.com/user-attachments/assets/94ea2ee4-dd4b-481e-93b3-6d046e90014b" />
+
+### Advantages
+- Simple and easy to understand
+- Centralized object creation logic
+
+### Disadvantages
+- Violates Open/Closed Principle
+- Factory class becomes large as new types are added
+
+### Use Case
+- Small applications
+- Limited number of object types
+
+
+### 2. factory method :
+
+Defines an interface or abstract class for creating an object, but allows subclasses to decide which class to instantiate.
+
+## Diagram
+
+<img width="1166" height="744" alt="image" src="https://github.com/user-attachments/assets/944c9230-275a-47ec-bd51-427e2e8ba8d6" />
+
+
 ```java
 // Product Interface and subclasses
 interface Burger {
     void prepare();
 }
 
+//---------------------Tasty burger----------------------->
 //BasicBurger
 //StandardBurger
 //PremiumBurger
-
-class BasicWheatBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Basic Wheat Burger with bun, patty, and ketchup!");
-    }
-}
-
-class StandardWheatBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Standard Wheat Burger with bun, patty, cheese, and lettuce!");
-    }
-}
-
-class PremiumWheatBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Premium Wheat Burger with gourmet bun, premium patty, cheese, lettuce, and secret sauce!");
-    }
-}
+//----------------------Healthy burger-------------------->
+//BasicWheatBurger
+//StandardWheatBurger
+//PremiumWheatBurger
 
 // Factory Interface and Concrete Factories
 interface BurgerFactory {
@@ -169,10 +168,24 @@ public class FactoryMethod {
     }
 }
 
+### Advantages
+- Follows Open/Closed Principle
+- Eliminates conditional logic
+
+### Disadvantages
+- Increases number of classes
+- Slightly more complex design
+
+### Use Case
+- Frameworks and libraries
+- When object creation logic varies by subclass
 
 ```
 
-3.abstract factory method {DP}
+### 3. abstract factory method :
+
+Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+
 ```java
 // --- Product 1 --> Burger ---
 interface Burger {
@@ -274,3 +287,14 @@ public class AbstractFactory {
 
 ```
 
+### Advantages
+- Ensures consistency among related objects
+- Strong abstraction
+
+### Disadvantages
+- Hard to add new product types
+- High complexity
+
+### Use Case
+- UI toolkits
+- Cross-platform applications

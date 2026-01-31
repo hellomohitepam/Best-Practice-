@@ -1,12 +1,11 @@
 # Singleton Class
 
----
 A Singleton class ensures that only one object (instance) of a class is created throughout the lifetime of an application, and it provides a global point of access to that instance.
 
-private constructor
-static instance that return the same instance
-
-
+A Singleton class generally has:
+1. **Private constructor** – prevents object creation using `new`
+2. **Private static instance variable** – stores the single instance
+3. **Public static method** – returns the instance
 
 ```java
 public class SimpleSingleton {
@@ -25,24 +24,7 @@ public class SimpleSingleton {
 }
 ⚠️ Problem: This version is NOT thread-safe.
 ```
-
-```java
-public class SimpleSingleton {
-    private static SimpleSingleton instance = null;
-
-    private SimpleSingleton() {
-        System.out.println("Singleton Constructor called");
-    }
-
-    public static SimpleSingleton getInstance() {
-        if (instance == null) {
-            instance = new SimpleSingleton();
-        }
-        return instance;
-    }
-}
-```
-
+# Thread safe
 
 ```java
 public class ThreadSafeDoubleLockingSingleton {

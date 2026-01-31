@@ -127,23 +127,9 @@ interface Burger {
     void prepare();
 }
 
-class BasicBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Basic Burger with bun, patty, and ketchup!");
-    }
-}
-
-class StandardBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Standard Burger with bun, patty, cheese, and lettuce!");
-    }
-}
-
-class PremiumBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Premium Burger with gourmet bun, premium patty, cheese, lettuce, and secret sauce!");
-    }
-}
+//BasicBurger
+//StandardBurger
+//PremiumBurger
 
 class BasicWheatBurger implements Burger {
     public void prepare() {
@@ -222,70 +208,22 @@ interface Burger {
     void prepare();
 }
 
-class BasicBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Basic Burger with bun, patty, and ketchup!");
-    }
-}
-
-class StandardBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Standard Burger with bun, patty, cheese, and lettuce!");
-    }
-}
-
-class PremiumBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Premium Burger with gourmet bun, premium patty, cheese, lettuce, and secret sauce!");
-    }
-}
-
-class BasicWheatBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Basic Wheat Burger with bun, patty, and ketchup!");
-    }
-}
-
-class StandardWheatBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Standard Wheat Burger with bun, patty, cheese, and lettuce!");
-    }
-}
-
-class PremiumWheatBurger implements Burger {
-    public void prepare() {
-        System.out.println("Preparing Premium Wheat Burger with gourmet bun, premium patty, cheese, lettuce, and secret sauce!");
-    }
-}
+//BasicBurger
+//StandardBurger
+//PremiumBurger
+//BasicWheatBurger
+//StandardWheatBurger
+//PremiumWheatBurger
 
 // --- Product 2 --> GarlicBread ---
 interface GarlicBread {
     void prepare();
 }
 
-class BasicGarlicBread implements GarlicBread {
-    public void prepare() {
-        System.out.println("Preparing Basic Garlic Bread with butter and garlic!");
-    }
-}
-
-class CheeseGarlicBread implements GarlicBread {
-    public void prepare() {
-        System.out.println("Preparing Cheese Garlic Bread with extra cheese and butter!");
-    }
-}
-
-class BasicWheatGarlicBread implements GarlicBread {
-    public void prepare() {
-        System.out.println("Preparing Basic Wheat Garlic Bread with butter and garlic!");
-    }
-}
-
-class CheeseWheatGarlicBread implements GarlicBread {
-    public void prepare() {
-        System.out.println("Preparing Cheese Wheat Garlic Bread with extra cheese and butter!");
-    }
-}
+//BasicGarlicBread
+//CheeseGarlicBread
+//BasicWheatGarlicBread
+//CheeseWheatGarlicBread
 
 // --- Abstract Factory ---
 interface MealFactory {
@@ -364,38 +302,4 @@ public class AbstractFactory {
 }
 
 ```
-
-if we want to very algo in run time then strategy or if object creation then factory
-
-
------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Strategy design pattern :- Defines a family of algorithms, put them into separate classes so that they can be changed at run time.
-
-<img width="1013" height="646" alt="image" src="https://github.com/user-attachments/assets/fa4e5e9c-995e-4c28-9768-f8ab0f501446" />
-
-we can call these strategies as algo
-
-fever composition over inheritence
-
-the one who use the algo are client class
-strategies are like talking, walking
-
-Conclusion
-
-Encapsulate what varies & keep it separate from what remains same.
-
-Solution to inheritance is not more inheritance.
-
-Composition should be favoured over inheritance.
-
-Code to interface & not to concrete.
-
-Do NOT repeat yourself (DRY).
--------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
 

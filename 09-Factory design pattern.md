@@ -17,10 +17,6 @@ Factories are generally categorized into **three types**.
 
 A **simple factory class** is responsible for creating objects based on input parameters (usually using `if` / `switch`).
 
-### Diagram
-
-<img width="853" height="632" alt="image" src="https://github.com/user-attachments/assets/34064b31-9521-4caf-a4eb-a652c03ae745" />
-
 ```java
 // --- Burger Interface ---
 interface Burger {
@@ -98,11 +94,6 @@ public class SimpleFactory {
 ### 2. factory method :
 
 Defines an interface or abstract class for creating an object, but allows subclasses to decide which class to instantiate.
-
-## Diagram
-
-<img width="1166" height="744" alt="image" src="https://github.com/user-attachments/assets/944c9230-275a-47ec-bd51-427e2e8ba8d6" />
-
 
 ```java
 // Product Interface and subclasses

@@ -159,6 +159,7 @@ public class FactoryMethod {
     }
 }
 
+```
 ### Advantages
 - Follows Open/Closed Principle
 - Eliminates conditional logic
@@ -171,7 +172,6 @@ public class FactoryMethod {
 - Frameworks and libraries
 - When object creation logic varies by subclass
 
-```
 
 ### 3. abstract factory method :
 

@@ -19,14 +19,12 @@ There are three main categories of design patterns:
 
 ### 1. Creational Patterns
 - Focus on **how objects are created**
-- Aim to make code more **flexible and reusable**
 
 ### 2. Structural Patterns
 - Show how to **combine classes and objects** into larger structures efficiently
 
 ### 3. Behavioral Patterns
 - Focus on **how objects communicate**
-- Deal with **sharing responsibilities** between objects
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 # Factory Design Pattern

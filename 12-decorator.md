@@ -87,3 +87,26 @@ public class DecoratorPattern {
     }
 }
 ```
+
+
+# ✅ Use when:
+* You need to add responsibilities dynamically
+* Subclassing leads to class explosion
+* You want flexible feature combinations
+
+# ❌ Avoid when:
+* You need to add behavior to all objects globally
+* Excessive decorators make debugging hard
+
+#. Advantages
+* Open/Closed Principle
+* Runtime flexibility
+* Cleaner than large inheritance trees
+* Behavior reuse
+
+# Disadvantages
+* Many small classes
+* Harder to debug (nested objects)
+* Order of decorators may matter
+
+

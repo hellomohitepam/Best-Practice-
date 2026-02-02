@@ -2,7 +2,7 @@
 
 <img width="1142" height="520" alt="image" src="https://github.com/user-attachments/assets/a5ebf00f-c75c-411c-bed8-852c5b3c2966" />
 
-Problem with inheritence:
+# Problem with inheritence:
 * code reuse
 * to add a new feature a lot of change were required
 * Breaking OCP

@@ -150,8 +150,17 @@ public class StrategyDesignPattern {
 * Code to interface & not to concrete.
 * Do NOT repeat yourself (DRY).
 -------------------------------------------------------------------------------------------------------------------------
+Create a payment gateway system that supports multiple payment methods like 'CreditCardPayment', 'PayPalPayment', and 'BitcoinPayment'. 
 
+Use the Strategy pattern to dynamically switch between payment methods.
 
+🧠 How This Uses Strategy Pattern
+| Role                | Class                                                  |
+| ------------------- | ------------------------------------------------------ |
+| Strategy Interface  | `Payment`                                              |
+| Concrete Strategies | `CreditCardPayment`, `PayPalPayment`, `BitcoinPayment` |
+| Context             | `ProcessPayment`                                       |
+| Client              | `App`                                                  |
 
 
 

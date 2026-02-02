@@ -7,7 +7,9 @@
 * to add a new feature a lot of change were required
 * Breaking OCP
 
-Strategy design pattern :- Defines a family of algorithms, put them into separate classes so that they can be changed at run time.
+# Strategy design pattern :-
+
+Defines a family of algorithms, put them into separate classes so that they can be changed at run time.
 
 if we want to very algo in run time then strategy or if object creation then factory
 

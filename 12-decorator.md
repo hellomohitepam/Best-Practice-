@@ -13,81 +13,98 @@ The Decorator Pattern is a structural design pattern that allows you to add new 
 
 `is a` inheritence use to behave like them , `has a` composition relationship for changing behavoiur.
 
+        Component
+            ↑
+    ConcreteComponent
+            ↑
+        Decorator
+            ↑
+     ConcreteDecorator
+
+
 ```java
-// Component Interface: defines a common interface for Mario and all power-up decorators.
-interface Character {
-    String getAbilities();
+public interface Coffee {
+    double cost();
+    String description();
 }
 
-// Concrete Component: Basic Mario character with no power-ups.
-class Mario implements Character {
-    public String getAbilities() {
-        return "Mario";
+public class SimpleCoffee implements Coffee {
+    @Override
+    public double cost() {
+        return 5.0;
     }
-}
 
-// Abstract Decorator: CharacterDecorator "is-a" Character and "has-a" Character.
-abstract class CharacterDecorator implements Character {
-    protected Character character;  // Wrapped component
-
-    public CharacterDecorator(Character c) {
-        this.character = c;
+    @Override
+    public String description() {
+        return "Simple Coffee";
     }
 }
 
-// Concrete Decorator: Height-Increasing Power-Up.
-class HeightUp extends CharacterDecorator {
-    public HeightUp(Character c) {
-        super(c);
-    }
+public abstract class CoffeeDecorator implements Coffee {
+    protected Coffee coffee;
 
-    public String getAbilities() {
-        return character.getAbilities() + " with HeightUp";
+    public CoffeeDecorator(Coffee coffee) {
+        this.coffee = coffee;
     }
 }
 
-// Concrete Decorator: Gun Shooting Power-Up.
-class GunPowerUp extends CharacterDecorator {
-    public GunPowerUp(Character c) {
-        super(c);
+public class MilkDecorator extends CoffeeDecorator {
+
+    public MilkDecorator(Coffee coffee) {
+        super(coffee);
     }
 
-    public String getAbilities() {
-        return character.getAbilities() + " with Gun";
-    }
-}
-
-// Concrete Decorator: Star Power-Up (temporary ability).
-class StarPowerUp extends CharacterDecorator {
-    public StarPowerUp(Character c) {
-        super(c);
+    @Override
+    public double cost() {
+        return coffee.cost() + 2.0;
     }
 
-    public String getAbilities() {
-        return character.getAbilities() + " with Star Power (Limited Time)";
+    @Override
+    public String description() {
+        return coffee.description() + ", Milk";
     }
 }
 
-public class DecoratorPattern {
+public class SugarDecorator extends CoffeeDecorator {
+
+    public SugarDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public double cost() {
+        return coffee.cost() + 1.0;
+    }
+
+    @Override
+    public String description() {
+        return coffee.description() + ", Sugar";
+    }
+}
+
+public class Main {
     public static void main(String[] args) {
-        // Create a basic Mario character.
-        Character mario = new Mario();
-        System.out.println("Basic Character: " + mario.getAbilities());
 
-        // Decorate Mario with a HeightUp power-up.
-        mario = new HeightUp(mario);
-        System.out.println("After HeightUp: " + mario.getAbilities());
+        Coffee coffee = new SimpleCoffee();
+        coffee = new MilkDecorator(coffee);
+        coffee = new SugarDecorator(coffee);
 
-        // Decorate Mario further with a GunPowerUp.
-        mario = new GunPowerUp(mario);
-        System.out.println("After GunPowerUp: " + mario.getAbilities());
-
-        // Finally, add a StarPowerUp decoration.
-        mario = new StarPowerUp(mario);
-        System.out.println("After StarPowerUp: " + mario.getAbilities());
+        System.out.println(coffee.description());
+        System.out.println("Cost: " + coffee.cost());
     }
 }
 ```
+```
+Simple Coffee, Milk, Sugar
+Cost: 8.0
+```
+
+# Follows SOLID Principles
+| Principle | How Decorator Helps                          |
+| --------- | -------------------------------------------- |
+| OCP       | Add behavior without modifying existing code |
+| SRP       | Each decorator has one responsibility        |
+| DIP       | Depends on abstraction (`Coffee`)            |
 
 
 # ✅ Use when:
@@ -99,7 +116,7 @@ public class DecoratorPattern {
 * You need to add behavior to all objects globally
 * Excessive decorators make debugging hard
 
-#. Advantages
+# Advantages
 * Open/Closed Principle
 * Runtime flexibility
 * Cleaner than large inheritance trees
@@ -110,4 +127,10 @@ public class DecoratorPattern {
 * Harder to debug (nested objects)
 * Order of decorators may matter
 
+# Decorator vs Proxy vs Adapter (Quick Comparison)
+| Pattern   | Purpose           |
+| --------- | ----------------- |
+| Decorator | Add behavior      |
+| Proxy     | Control access    |
+| Adapter   | Convert interface |
 

@@ -15,6 +15,12 @@ if we want to very algo in run time then strategy or if object creation then fac
 
 The one who use the algo are client class, strategies are like talking, walking
 
+# Common Issues Without Strategy
+* Large if-else or switch statements
+* Multiple subclasses for each variation of behavior
+* Tight coupling between behavior and the object
+* Violations of Open/Closed Principle
+
 ```java
 // --- Strategy Interface for Walk ---
 interface WalkableRobot {
@@ -124,6 +130,16 @@ public class StrategyDesignPattern {
 }
 
 ```
+# ✅ Use when:
+* You have multiple variants of an algorithm
+* Behavior must change dynamically
+* You want to eliminate conditional logic
+* You need clean separation of concerns
+
+# ❌ Avoid when:
+* Only one algorithm exists
+* Algorithms rarely change
+* Added complexity isn’t justified
 
 # Conclusion
 * Encapsulate what varies & keep it separate from what remains same.

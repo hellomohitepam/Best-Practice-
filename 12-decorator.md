@@ -1,7 +1,16 @@
-decorator is a object
+## Decorator
 
-is a inheritence use of behavoiur
-has a composition relationship for using behavoiur
+<img width="1350" height="830" alt="image" src="https://github.com/user-attachments/assets/ee601769-3268-45fd-a266-3ef9c0876943" />
+
+# Decorator Pattern : 
+The Decorator Pattern is a structural design pattern that allows you to add new behavior to an object dynamically (at runtime) without modifying its existing code.
+
+# Core Idea:
+* Composition over inheritance
+* Extend behavior without subclass explosion
+* Behaviors can be combined flexibly
+
+`is a` inheritence use to behave like them , `has a` composition relationship for changing behavoiur.
 
 ```java
 // Component Interface: defines a common interface for Mario and all power-up decorators.
@@ -77,6 +86,4 @@ public class DecoratorPattern {
         System.out.println("After StarPowerUp: " + mario.getAbilities());
     }
 }
-
-
 ```

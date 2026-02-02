@@ -21,82 +21,81 @@ The Decorator Pattern is a structural design pattern that allows you to add new 
             ↑
      ConcreteDecorator
 
-
 ```java
-public interface Coffee {
-    double cost();
-    String description();
+// Component Interface: defines a common interface for Mario and all power-up decorators.
+interface Character {
+    String getAbilities();
 }
 
-public class SimpleCoffee implements Coffee {
-    @Override
-    public double cost() {
-        return 5.0;
-    }
-
-    @Override
-    public String description() {
-        return "Simple Coffee";
+// Concrete Component: Basic Mario character with no power-ups.
+class Mario implements Character {
+    public String getAbilities() {
+        return "Mario";
     }
 }
 
-public abstract class CoffeeDecorator implements Coffee {
-    protected Coffee coffee;
+// Abstract Decorator: CharacterDecorator "is-a" Character and "has-a" Character.
+abstract class CharacterDecorator implements Character {
+    protected Character character;  // Wrapped component
 
-    public CoffeeDecorator(Coffee coffee) {
-        this.coffee = coffee;
+    public CharacterDecorator(Character c) {
+        this.character = c;
     }
 }
 
-public class MilkDecorator extends CoffeeDecorator {
-
-    public MilkDecorator(Coffee coffee) {
-        super(coffee);
+// Concrete Decorator: Height-Increasing Power-Up.
+class HeightUp extends CharacterDecorator {
+    public HeightUp(Character c) {
+        super(c);
     }
 
-    @Override
-    public double cost() {
-        return coffee.cost() + 2.0;
-    }
-
-    @Override
-    public String description() {
-        return coffee.description() + ", Milk";
+    public String getAbilities() {
+        return character.getAbilities() + " with HeightUp";
     }
 }
 
-public class SugarDecorator extends CoffeeDecorator {
-
-    public SugarDecorator(Coffee coffee) {
-        super(coffee);
+// Concrete Decorator: Gun Shooting Power-Up.
+class GunPowerUp extends CharacterDecorator {
+    public GunPowerUp(Character c) {
+        super(c);
     }
 
-    @Override
-    public double cost() {
-        return coffee.cost() + 1.0;
-    }
-
-    @Override
-    public String description() {
-        return coffee.description() + ", Sugar";
+    public String getAbilities() {
+        return character.getAbilities() + " with Gun";
     }
 }
 
-public class Main {
+// Concrete Decorator: Star Power-Up (temporary ability).
+class StarPowerUp extends CharacterDecorator {
+    public StarPowerUp(Character c) {
+        super(c);
+    }
+
+    public String getAbilities() {
+        return character.getAbilities() + " with Star Power (Limited Time)";
+    }
+}
+
+public class DecoratorPattern {
     public static void main(String[] args) {
+        // Create a basic Mario character.
+        Character mario = new Mario();
+        System.out.println("Basic Character: " + mario.getAbilities());
 
-        Coffee coffee = new SimpleCoffee();
-        coffee = new MilkDecorator(coffee);
-        coffee = new SugarDecorator(coffee);
+        // Decorate Mario with a HeightUp power-up.
+        mario = new HeightUp(mario);
+        System.out.println("After HeightUp: " + mario.getAbilities());
 
-        System.out.println(coffee.description());
-        System.out.println("Cost: " + coffee.cost());
+        // Decorate Mario further with a GunPowerUp.
+        mario = new GunPowerUp(mario);
+        System.out.println("After GunPowerUp: " + mario.getAbilities());
+
+        // Finally, add a StarPowerUp decoration.
+        mario = new StarPowerUp(mario);
+        System.out.println("After StarPowerUp: " + mario.getAbilities());
     }
 }
-```
-```
-Simple Coffee, Milk, Sugar
-Cost: 8.0
+
 ```
 
 # Follows SOLID Principles

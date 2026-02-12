@@ -219,7 +219,7 @@ To ensure this, LSP defines three main guidelines:
 - A **precondition** must be satisfied before a method can be executed.
 - Example:
   - Parent class: password length `<= 8`
-  - Child class: password length `<= 6`
+  - Child class: password length `<= 12`
 - Rule:
   - Subclasses can **weaken** the precondition
 
@@ -241,21 +241,3 @@ To comply with the **Liskov Substitution Principle**:
 - Behavior consistency is more important than code reuse
 
 Following these rules ensures safe inheritance and robust object-oriented design.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
